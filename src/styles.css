@@ -1,0 +1,488 @@
+@import "tailwindcss" source(none);
+@import "tw-animate-css";
+@source "../src";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system definition.
+ *
+ * The @theme inline block maps CSS custom properties to Tailwind utility
+ * classes (e.g. --color-primary -> bg-primary, text-primary).
+ *
+ * The :root and .dark blocks define the actual color values using oklch.
+ * All colors MUST use oklch format.
+ *
+ * To add a new semantic color:
+ * 1. Add the variable to :root (light value) and .dark (dark value)
+ * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.75rem;
+  --background: oklch(0.99 0.005 80);
+  --foreground: oklch(0.25 0.03 30);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.25 0.03 30);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.25 0.03 30);
+  --primary: oklch(0.55 0.13 30);
+  --primary-foreground: oklch(0.99 0.01 80);
+  --secondary: oklch(0.95 0.02 70);
+  --secondary-foreground: oklch(0.3 0.05 30);
+  --muted: oklch(0.96 0.015 70);
+  --muted-foreground: oklch(0.5 0.03 40);
+  --accent: oklch(0.85 0.08 60);
+  --accent-foreground: oklch(0.25 0.05 30);
+  --destructive: oklch(0.55 0.22 25);
+  --destructive-foreground: oklch(0.99 0.01 80);
+  --border: oklch(0.9 0.02 60);
+  --input: oklch(0.92 0.02 60);
+  --ring: oklch(0.55 0.13 30);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.98 0.01 70);
+  --sidebar-foreground: oklch(0.25 0.03 30);
+  --sidebar-primary: oklch(0.55 0.13 30);
+  --sidebar-primary-foreground: oklch(0.99 0.01 80);
+  --sidebar-accent: oklch(0.95 0.02 70);
+  --sidebar-accent-foreground: oklch(0.3 0.05 30);
+  --sidebar-border: oklch(0.9 0.02 60);
+  --sidebar-ring: oklch(0.55 0.13 30);
+}
+
+.dark {
+  --background: oklch(0.129 0.042 264.695);
+  --foreground: oklch(0.984 0.003 247.858);
+  --card: oklch(0.208 0.042 265.755);
+  --card-foreground: oklch(0.984 0.003 247.858);
+  --popover: oklch(0.208 0.042 265.755);
+  --popover-foreground: oklch(0.984 0.003 247.858);
+  --primary: oklch(0.929 0.013 255.508);
+  --primary-foreground: oklch(0.208 0.042 265.755);
+  --secondary: oklch(0.279 0.041 260.031);
+  --secondary-foreground: oklch(0.984 0.003 247.858);
+  --muted: oklch(0.279 0.041 260.031);
+  --muted-foreground: oklch(0.704 0.04 256.788);
+  --accent: oklch(0.279 0.041 260.031);
+  --accent-foreground: oklch(0.984 0.003 247.858);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.551 0.027 264.364);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.208 0.042 265.755);
+  --sidebar-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.279 0.041 260.031);
+  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.551 0.027 264.364);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+}
+
+/* ===== Google Fonts ===== */
+.font-playfair {
+  font-family: 'Playfair Display', serif;
+}
+
+.font-cormorant {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.font-arabic {
+  font-family: 'Amiri', 'Noto Naskh Arabic', serif;
+}
+
+/* ===== Romantic Animated Background ===== */
+.romantic-animated-bg {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f0fdf4, #dcfce7 20%, #d1fae5 40%, #bbf7d0 60%, #dcfce7 80%, #f0fdf4);
+}
+
+.romantic-animated-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 30%, rgba(134, 239, 172, 0.2) 0, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(110, 231, 183, 0.15) 0, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(167, 243, 208, 0.1) 0, transparent 60%);
+  animation: romantic-float-bg 20s ease-in-out infinite;
+}
+
+@keyframes romantic-float-bg {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-30px) scale(1.05);
+    opacity: 0.9;
+  }
+}
+
+/* ===== Glass Effects ===== */
+.romantic-glass-effect {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(134, 239, 172, 0.3);
+  box-shadow: 0 8px 32px rgba(74, 222, 128, 0.15), 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.islamic-glass-effect {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(134, 239, 172, 0.3);
+  box-shadow: 0 8px 32px rgba(74, 222, 128, 0.15), 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.dark-glass-effect {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.clean-glass-effect {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+/* ===== Glow Text ===== */
+.romantic-glow-text {
+  background: linear-gradient(120deg, #10b981, #34d399, #6ee7b7, #a7f3d0);
+  background-size: 300% 300%;
+  animation: romantic-glow-gradient 4s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 2px 8px rgba(16, 185, 129, 0.3));
+}
+
+.glow-text {
+  background: linear-gradient(120deg, #10b981, #34d399, #6ee7b7, #a7f3d0);
+  background-size: 300% 300%;
+  animation: romantic-glow-gradient 4s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 2px 8px rgba(16, 185, 129, 0.3));
+}
+
+.islamic-glow-text {
+  background: linear-gradient(120deg, #10b981, #34d399, #6ee7b7, #a7f3d0);
+  background-size: 300% 300%;
+  animation: romantic-glow-gradient 4s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 2px 8px rgba(16, 185, 129, 0.3));
+}
+
+@keyframes romantic-glow-gradient {
+  0%, 100% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* ===== Glow Buttons ===== */
+.romantic-glow-button {
+  background: linear-gradient(135deg, #10b981, #f59e0b);
+  box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+}
+
+.romantic-glow-button:hover {
+  box-shadow: 0 6px 30px rgba(16, 185, 129, 0.5);
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #059669, #f59e0b);
+}
+
+.islamic-glow-button {
+  background: linear-gradient(135deg, #10b981, #f59e0b);
+  box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+}
+
+.islamic-glow-button:hover {
+  box-shadow: 0 6px 30px rgba(16, 185, 129, 0.5);
+  transform: translateY(-2px);
+}
+
+.glow-button {
+  background: linear-gradient(135deg, #10b981, #f59e0b);
+  box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+}
+
+.glow-button:hover {
+  box-shadow: 0 6px 30px rgba(16, 185, 129, 0.5);
+  transform: translateY(-2px);
+}
+
+/* ===== Navigation Glass ===== */
+.romantic-nav-glass {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(134, 239, 172, 0.2);
+  box-shadow: 0 4px 16px rgba(74, 222, 128, 0.15);
+}
+
+/* ===== Cards ===== */
+.romantic-card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(134, 239, 172, 0.25);
+  box-shadow: 0 8px 24px rgba(74, 222, 128, 0.15), 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.romantic-card:hover {
+  box-shadow: 0 12px 32px rgba(74, 222, 128, 0.25), 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-4px);
+}
+
+.islamic-dark-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+}
+
+.dark-card {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+/* ===== Pattern Overlays ===== */
+.romantic-pattern-overlay {
+  background-image: radial-gradient(circle at 20% 20%, rgba(134, 239, 172, 0.08) 0, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(110, 231, 183, 0.08) 0, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(167, 243, 208, 0.05) 0, transparent 60%);
+}
+
+.islamic-pattern-overlay {
+  background-image: radial-gradient(circle at 20% 20%, rgba(134, 239, 172, 0.08) 0, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(110, 231, 183, 0.08) 0, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(167, 243, 208, 0.05) 0, transparent 60%);
+}
+
+/* ===== Floating Glow ===== */
+.romantic-floating-glow {
+  animation: romantic-float-elements 6s ease-in-out infinite;
+  filter: drop-shadow(0 4px 12px rgba(255, 192, 203, 0.4));
+}
+
+.islamic-floating-glow {
+  animation: romantic-float-elements 6s ease-in-out infinite;
+  filter: drop-shadow(0 4px 12px rgba(16, 185, 129, 0.4));
+}
+
+@keyframes romantic-float-elements {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-15px) scale(1.05);
+  }
+}
+
+/* ===== Smooth Transition ===== */
+.smooth-transition {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===== Mobile Nav Spacing ===== */
+@media (max-width: 640px) {
+  .nav-mobile-spacing {
+    padding-bottom: 100px;
+  }
+}
+
+/* ===== Confetti & Firework ===== */
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+.confetti-piece {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+@keyframes firework {
+  0% {
+    transform: translate(0) scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--x), var(--y)) scale(1);
+    opacity: 0;
+  }
+}
+
+.firework-particle {
+  position: fixed;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+/* ===== Dark Romantic Background (Wishes section) ===== */
+.dark-romantic-bg {
+  background: linear-gradient(135deg, #1a1a2e, #16213e 30%, #0f3460 60%, #1a1a2e);
+}
+
+.islamic-dark-bg {
+  background: linear-gradient(135deg, #1a1a2e, #16213e 30%, #0f3460 60%, #1a1a2e);
+}
+
+.islamic-animated-bg {
+  position: relative;
+}
+
+.animated-bg {
+  position: relative;
+}
+
+/* ===== Scrollbar ===== */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(220, 252, 231, 0.3);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #10b981, #34d399);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #059669, #10b981);
+}
+
+/* ===== Wish Card Styles ===== */
+.wish-card-date-pill {
+  font-size: 0.75rem;
+  color: #6b7280;
+  background: #f3f4f6;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+}
+
+.wish-card-message-bubble {
+  background: #f9fafb;
+  border-radius: 1rem;
+  padding: 1rem;
+  border: 1px solid #f3f4f6;
+}
+
+/* ===== Shimmer ===== */
+.romantic-shimmer {
+  background: linear-gradient(90deg, rgba(16, 185, 129, 0), rgba(16, 185, 129, 0.8) 50%, rgba(16, 185, 129, 0));
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* ===== Sage color utilities ===== */
+.text-sage-600 { color: #4a6741; }
+.text-sage-700 { color: #3d5636; }
+.text-sage-800 { color: #2f432a; }
+.bg-sage-50 { background-color: #f3f6f2; }
+.from-sage-50 { --tw-gradient-from: #f3f6f2; }
+.to-sage-50 { --tw-gradient-to: #f3f6f2; }
+.border-sage-200 { border-color: #c5d4c0; }
+.hover\:border-sage-300:hover { border-color: #a8bda2; }
